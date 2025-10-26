@@ -1,6 +1,6 @@
 #!bin/bash
 
-mkdir -p bin
-javac Main.java -d bin
+mkdir -p build
+javac Main.java -d build
 
 
