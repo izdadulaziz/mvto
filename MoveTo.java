@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class MoveTo{
   
-  public static final String VERSION = "v1.0";
+  public static final String VERSION = "v1.1";
   public static final String FILE_CONFIG = ".mvto";
   
   public String getPathFileConfig(){
@@ -17,7 +17,7 @@ public class MoveTo{
 
   public boolean addToConfig(String file, String alias, String path){
     try(FileWriter fw = new FileWriter(file, true)){
-      fw.write("\n" + alias + "=" + path);
+      fw.write(alias + "=" + path + "\n");
       return true;
     }catch(IOException e){
       return false;
@@ -111,7 +111,7 @@ public class MoveTo{
     System.out.println("option : ");
     System.out.println("\thelp -> print this\n\tversion -> print version\n\tprint -> print all alias");
     System.out.println("object : ");
-    System.out.println("\tadd <alias> <path> -> add alias\n\tdelete <alias> -> delete alias\n\tprint <alias> -> print path alias");
+    System.out.println("\tadd <alias> <full-path> -> add alias\n\tdelete <alias> -> delete alias\n\tprint <alias> -> print path alias");
 
   }
 
