@@ -107,7 +107,7 @@ public class MoveTo{
   }
 
   public void printHelp(){
-    System.out.println("USAGE : mvto <option> OR mvto [object] alias");
+    System.out.println("USAGE : mvto <alias> OR mvto <option> OR mvto [object] <alias>");
     System.out.println("option : ");
     System.out.println("\thelp -> print this\n\tversion -> print version\n\tprint -> print all alias");
     System.out.println("object : ");
