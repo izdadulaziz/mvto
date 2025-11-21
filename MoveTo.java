@@ -8,14 +8,14 @@ import java.util.ArrayList;
 
 public class MoveTo{
   
-  public static final String VERSION = "v1.1";
+  public static final String VERSION = "v1.2";
   public static final String FILE_CONFIG = ".mvto";
   
   public String getPathFileConfig(){
     return System.getenv("HOME") + "/" + FILE_CONFIG;
   }
 
-  public boolean addToConfig(String file, String alias, String path){
+  public boolean addAlias(String file, String alias, String path){
     try(FileWriter fw = new FileWriter(file, true)){
       fw.write(alias + "=" + path + "\n");
       return true;
@@ -26,7 +26,7 @@ public class MoveTo{
   }
 
 
-  public String getPathAlias(String file, String alias){
+  public String pathAlias(String file, String alias){
     
     try(BufferedReader reader = new BufferedReader(new FileReader(file))){
       String line;
@@ -50,7 +50,7 @@ public class MoveTo{
     
   }
   
-  public String printAll(String file){
+  public String listAlias(String file){
     
     StringBuilder sb = new StringBuilder();
 
@@ -68,7 +68,7 @@ public class MoveTo{
     
   }
 
-  public boolean deleteAlias(String file, String alias){
+  public boolean rmvAlias(String file, String alias){
   
     ArrayList<String> list = new ArrayList<>();
     
@@ -109,9 +109,9 @@ public class MoveTo{
   public void printHelp(){
     System.out.println("USAGE : mvto <alias> OR mvto <option> OR mvto [object] <alias>");
     System.out.println("option : ");
-    System.out.println("\thelp -> print this\n\tversion -> print version\n\tprint -> print all alias");
+    System.out.println("\thelp -> print this\n\tversion -> print version\n\tlist -> print all alias");
     System.out.println("object : ");
-    System.out.println("\tadd <alias> <full-path> -> add alias\n\tdelete <alias> -> delete alias\n\tprint <alias> -> print path alias");
+    System.out.println("\tadd <alias> <full-path> -> add alias\n\trmv <alias> -> remove alias\n\tprint <alias> -> print path alias");
 
   }
 
