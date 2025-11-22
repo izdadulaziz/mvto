@@ -78,18 +78,22 @@ public class Main{
     if(argc == 3){
 
       if(args[0].equals("add") && args[1] != null && args[2] != null){
+        
 
-        boolean result = mvto.addAlias(mvto.getPathFileConfig(), args[1], args[2]);
+        if(args[2].equals(".")){
 
-        if(result){
+          boolean result = mvto.addAlias(mvto.getPathFileConfig(), args[1], mvto.getPWD());
 
-          System.out.println("success add alias " + args[1]);
+          System.out.println((result) ? "success add alias " + args[1] : "failed add alias " + args[1]);
 
         }else{
 
-          System.out.println("failed add alias " + args[2]);
+          boolean result = mvto.addAlias(mvto.getPathFileConfig(), args[1], args[2]);
+
+          System.out.println((result) ? "success add alias " + args[1] : "failed add alias " + args[1]);
 
         }
+
       }
     }
 

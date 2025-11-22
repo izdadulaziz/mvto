@@ -8,11 +8,15 @@ import java.util.ArrayList;
 
 public class MoveTo{
   
-  public static final String VERSION = "v1.2";
+  public static final String VERSION = "v1.3";
   public static final String FILE_CONFIG = ".mvto";
   
   public String getPathFileConfig(){
     return System.getenv("HOME") + "/" + FILE_CONFIG;
+  }
+
+  public String getPWD(){
+    return System.getenv("PWD");
   }
 
   public boolean addAlias(String file, String alias, String path){
